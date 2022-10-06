@@ -1,0 +1,44 @@
+<h1>Fruits lists </h1>
+
+<form action="/invoice" method="get" accept-charset="UTF-8" >
+ <br />
+ Apples <input type="checkbox" name="fruit" value="Apples" />
+ Oranges <input type="checkbox" name="fruit" value="Oranges" />
+ Mango <input type="checkbox" name="fruit" value="Mango"/>
+ Banana <input type="checkbox" name="fruit" value="Banana"/>
+ <br>
+
+ <br/>Yes <input type="radio" name="yesorno" id="yes" onchange="checkboxes()"> 
+<br>
+<%
+=begin%>
+ 
+<input name="commit" type="submit" value="Search" data-disable-with="Search" /> 
+<%
+=end%>
+
+</form>
+
+
+<script>
+ function checkboxes(){
+ 
+  var inputElems = document.getElementsByTagName("input"),
+  //var template = inputElems.options[e.selectedIndex].text;
+    count = 0;
+    fruits = [];
+    for (var i=0; i<inputElems.length; i++) {
+    if (inputElems[i].type === "checkbox" && inputElems[i].checked === true){
+        fruits.push(inputElems[i].value)
+        count++;
+       
+        
+    }
+    }
+    alert(count);
+    alert(fruits);
+};
+
+
+</script> 
+

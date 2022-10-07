@@ -13,15 +13,15 @@ class WithDip < ActiveSupport::CurrentAttributes
         def rotate_arm
           "I am rotating my #{@no_of_arms} arms"
         end
-      end
+    end
       
-      class PainterRobot < Robot
-        def initialize(tool)
-          @tool = tool
-        end
-      
-        def paint_house
-         "Painting the house with my #{@tool} arm"
-        end
+    class PainterRobot < Robot
+      def initialize(tool)
+        @tool = tool
       end
+    
+      def paint_house
+        "Painting the house with my #{@tool} arm"
+      end
+    end
 end

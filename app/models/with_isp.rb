@@ -5,31 +5,31 @@ class WithIsp < ActiveSupport::CurrentAttributes
 
     class Robot
         def initialize
-        @no_of_arms = 2
+            @no_of_arms = 2
         end
     
         def spin_around
-        'I can spin around'
+            'I can spin around'
         end
     
         def rotate_arm
-        "I am rotating my #{@no_of_arms} arms"
+            "I am rotating my #{@no_of_arms} arms"
         end
     end
   
     class PainterRobot < Robot
         def paint_house
-        "Painting the house with my painting brush arm"
+            "Painting the house with my painting brush arm"
         end
     end
   
     class RadioRobot < Robot
         def initialize
-        @no_of_antennas = 4
+            @no_of_antennas = 4
         end
     
         def search_for_stations
-        "#{@no_of_antennas} antennas connecting to the closest radio station"
+            "#{@no_of_antennas} antennas connecting to the closest radio station"
         end
     end
 end

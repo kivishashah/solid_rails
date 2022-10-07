@@ -1,71 +1,63 @@
 <% if Current.user %>
     Logged in as: <%= Current.user.email %><br>
-    <%= link_to 'Edit Password', edit_password_path %>
-    <br>
-    <br>
-    <%= link_to 'Fruit List', fruit_list_path %><br>
-    <br>
+    <%= link_to 'Edit Password', edit_password_path %><br><br>
+
+    <%= link_to 'Fruit List', fruit_list_path %><br><br>
+
     <% name = WithoutSrp.new(Current.user.email) %>
     <%= name.cook %><br>
     <%= name.garden %><br>
     <%= name.paint %><br>
-    <%= name.drive %><br>
-    <br><br>
-
+    <%= name.drive %><br><br>
+    
     <% kivi = WithSrp::Chef.new('kivi') %>
-    <%= kivi.cook %>
-    <br>
+    <%= kivi.cook %><br>
     <% nidhi = WithSrp::Gardener.new('nidhi') %>
-    <%= nidhi.garden%>
-    <br>
+    <%= nidhi.garden %><br>
     <% priya = WithSrp::Painter.new('priya')%>
-    <%= priya.paint%><br>
-    <br>
+    <%= priya.paint %><br><br>
+    
 
     <% kivi = WithoutOcp::Chef.new('kivi') %>
     <%= kivi.cook %><br>
-    <% kivi.description = 'painting the house'%>
-    <%=kivi.cook %> <br>
+    <% kivi.description = 'painting the house' %>
+    <%=kivi.cook %><br><br>
 
-    <% kivi_the_chef = WithOcp::Chef.new('kivi')%>
+    <% kivi_the_chef = WithOcp::Chef.new('kivi') %>
     <%= kivi_the_chef.cook %><br>
-    <% priya_the_chef_and_painter = WithOcp::ChefAndPainter.new('priya')%>
+    <% priya_the_chef_and_painter = WithOcp::ChefAndPainter.new('priya') %>
     <%= priya_the_chef_and_painter.cook %><br>
-    <%= priya_the_chef_and_painter.paint %><br>
-    <br>
+    <%= priya_the_chef_and_painter.paint %><br><br>
+    
     <% ramesh = WithoutLsp::Server.new('Ramesh') %>
     <%= ramesh.serve_coffee %><br>
     <% ruhi =  WithoutLsp::ServerChild.new('Ruhi') %>
-    <%= ruhi.serve_water %> <br>
+    <%= ruhi.serve_water %><br><br>
     <%#= ruhi.serve_coffee %> 
-    <%# got this error undefined method `serve_coffee' for #<WithoutLsp::ServerChild:0x00007f5dd5a1a970 @name="Ruhi" %>
-    <br>
+    <%#In above line got this error undefined method `serve_coffee' for #<WithoutLsp::ServerChild:0x00007f5dd5a1a970 @name="Ruhi" %>
+    
 
     <% ramesh = WithLsp::Server.new('Ramesh') %>
     <%= ramesh.serve_coffee %> <br>
     <% ruhi = WithLsp::ServerChild.new('Ruhi') %>
-    <%= ruhi.serve_water %> <br>
-    <%= ruhi.serve_coffee %><br>
-    <br>
+    <%= ruhi.serve_water %><br>
+    <%= ruhi.serve_coffee %><br><br>
 
-    <%= WithoutIsp::RadioRobot.new.paint_house%><br>
+    <%= WithoutIsp::RadioRobot.new.paint_house %><br>
     <%#  RadioRobot should not know anything about painting %>
-    <%= WithoutIsp::PainterRobot.new.search_for_stations%>
+    <%= WithoutIsp::PainterRobot.new.search_for_stations %><br><br>
     <%#PainterRobot shouldn't concern itself with searching for stations%>
-    <br>
-    <br>
-    <%= WithIsp::RadioRobot.new.search_for_stations %><br>
-    <%= WithIsp::PainterRobot.new.paint_house %><br>
-    <br>
-
-    <%= WithoutDip::PainterRobot.new.paint_house %> <br>
-    <br>
-    <%= WithDip::PainterRobot.new('painting brush').paint_house %><br>
-    <%= WithDip::PainterRobot.new('paint roller').paint_house %><br>
     
-    <br>
+    <%= WithIsp::RadioRobot.new.search_for_stations %><br>
+    <%= WithIsp::PainterRobot.new.paint_house %><br><br>
+    
+    <%= WithoutDip::PainterRobot.new.paint_house %><br><br>
+
+    <%= WithDip::PainterRobot.new('painting brush').paint_house %><br>
+    <%= WithDip::PainterRobot.new('paint roller').paint_house %><br><br>
+    
     <%= button_to 'Logout', logout_path, method: :delete %>
-    <% else %>
+<% else %>
     <%= link_to 'Sign Up', sign_up_path %>
     or
     <%= link_to 'Login', sign_in_path %>

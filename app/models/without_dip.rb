@@ -1,6 +1,6 @@
 class WithoutDip < ActiveSupport::CurrentAttributes
-   # High-level modules should not depend on low-level modules. Both should depend on the abstraction.
-   # Abstractions should not depend on details. Details should depend on abstractions.
+  # High-level modules should not depend on low-level modules. Both should depend on the abstraction.
+  # Abstractions should not depend on details. Details should depend on abstractions.
   class Robot
     def initialize
       @no_of_arms = 2

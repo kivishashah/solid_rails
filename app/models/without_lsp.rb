@@ -1,6 +1,6 @@
 class WithoutLsp < ActiveSupport::CurrentAttributes
-  #If S is a subtype of T, then objects of type T in a program may be replaced with,
-  #objects of type S without altering any of the desirable properties of that program.
+  #if class B is subtype of class A, then we should be able to replace obj of A with B without breaking the behaviour of prg.
+  #subclass should extend the capablity of parent class not narrow it down.
   class Server
     def initialize(name)
       @name = name.capitalize
